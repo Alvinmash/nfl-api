@@ -1,12 +1,15 @@
 const teams = require('../teams')
+const models = require('../models')
 
-const getAllTeams = (request, response) => {
+const getAllTeams = async (request, response) => {
+  const teams = await models.team.findAll()
+
   return response.send(teams)
 }
-const getTeamById = (request, response) => {
+const getTeamById = async (request, response) => {
   const { id } = request.params
 
-  const matchingTeams = teams.find((team) => team.id === parseInt(id))
+  const matchingTeams = await teams.find((team) => team.id === parseInt(id))
 
   return matchingTeams
     ? response.send(matchingTeams)

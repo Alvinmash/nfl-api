@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const { getAllTeams, getTeamById, saveNewTeam } = require('./controllers/teams')
 
-
 const app = express()
 
 
